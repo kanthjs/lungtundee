@@ -23,7 +23,7 @@
   - `kant/` — Personal Portfolio (คุณ Kant)
     - `holdings.csv` — หุ้นที่ถืออยู่
     - `mutual_funds.csv` — กองทุนรวมที่ถืออยู่
-    - `portfolio-plan-20k.md` — แผนการลงทุนระดับสูง
+    - `portfolio-plan-kant.md` — แผนการลงทุนระดับสูง
   - `me-tang/` — AI Autonomous Portfolio (20,000 THB)
     - `holdings.csv` — หุ้นของกองทุน AI
     - `mutual_funds.csv` — กองทุนรวมของกองทุน AI
@@ -35,7 +35,7 @@
 - `logs/` — บันทึก journal ของการลงทุน บันทึก "ทำไม" อยู่เบื้องหลังทุก trade และ portfolio reviews
 - `sources/ai-compare/` — บันทึกความเห็นจากหลาย AI (Gemini, Claude) เปรียบเทียบ side-by-side
   - `TEMPLATE.md` — เทมเพลตมาตรฐานสำหรับสร้างไฟล์เปรียบเทียบ
-  - `{YYYY-MM-DD}-{topic}.md` — ไฟล์เปรียบเทียบแต่ละครั้ง
+- `sources/watchlist.md` — รายการสินทรัพย์ที่เฝ้าติดตาม
 
 ## Investor Profile
 
