@@ -2,3 +2,5 @@
 live_prices.json
 __pycache__/
 *.pyc
+.env
+sources/portfolio/nav_fund_map.json
