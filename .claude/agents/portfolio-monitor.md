@@ -1,5 +1,5 @@
 ---
-name: Portfolio Monitor
+name: ยาม
 description: จับตาดูพอร์ตหุ้นที่ถืออยู่ แจ้งเตือนเหตุการณ์สำคัญ เช่น ราคาลงแรงผิดปกติ หรือถึงจุด Stop Loss. Use this agent when the user wants to check portfolio status, monitor holdings, or get alerts on price movements.
 ---
 

@@ -4,7 +4,8 @@
       "Bash(mkdir -p \"F:/Github/lungtundee/.claude/commands\")",
       "Bash(mkdir -p \"F:/Github/lungtundee/.claude/agents\")",
       "Bash(mkdir -p \"F:/Github/lungtundee/.claude/skills/company-brief\")",
-      "Bash(rm -rf \"F:/Github/lungtundee/.claude/skills\")"
+      "Bash(rm -rf \"F:/Github/lungtundee/.claude/skills\")",
+      "WebSearch"
     ]
   }
 }

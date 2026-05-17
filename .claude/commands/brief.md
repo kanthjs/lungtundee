@@ -13,10 +13,21 @@ You are running the /brief command.
 
 1. Confirm the ticker. ถ้า ambiguous ask user to confirm
 2. Read `CLAUDE.md` ที่ root ของ project — สะท้อน investing voice ของ user ใน output
-3. Research บริษัทจากความรู้ที่มี ถ้าไม่รู้ข้อมูลล่าสุดจริง say so honestly, don't guess ห้ามแต่งชื่อคน, วันที่, ตัวเลข ที่ verify ไม่ได้
-4. ถ้า folder `briefs/` ยังไม่มี ให้สร้าง
-5. Save brief ที่ `briefs/<TICKER>.md` (uppercase ticker)
-6. แสดง brief เต็มกลับใน chat ด้วย
+3. **Cache check:**
+   - ถ้า `briefs/<TICKER>.md` มีอยู่แล้ว → อ่าน header `generated:` แล้วบอก user: "พบ brief เก่า (generated: YYYY-MM-DD) ต้องการ regenerate ไหม?" แล้วรอ confirm
+   - ถ้า user บอกไม่ต้อง regenerate → แสดง brief เก่าใน chat เลย จบ
+   - ถ้า regenerate → ทำขั้นตอนต่อไป
+4. ตรวจ `sources/` ว่ามีไฟล์ raw data สำหรับ ticker นี้ไหม:
+   - ถ้ามี → ใช้ข้อมูลจาก sources/ ประกอบการเขียน brief (ไม่ต้อง search ซ้ำ)
+   - ถ้าไม่มี → research จากความรู้ที่มี ระบุชัดว่าข้อมูลไหนไม่มี source ยืนยัน
+5. ถ้า folder `briefs/` ยังไม่มี ให้สร้าง
+6. Save brief ที่ `briefs/<TICKER>.md` (uppercase ticker) โดยมี header:
+   ```
+   ticker: <TICKER>
+   generated: YYYY-MM-DD
+   sources: earnings=YYYY-MM-DD | news=YYYY-MM-DD | filings=YYYY-MM-DD
+   ```
+7. แสดง brief เต็มกลับใน chat ด้วย
 
 ## Output format (6 sections, required, no skipping)
 
