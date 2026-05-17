@@ -23,17 +23,22 @@ The system resides in `.claude/agents/` and follows a strict synthesis workflow:
 - `briefs/`: Research reports and investment theses.
   - `SET/`, `US/`, `Commodity/`: Stock-specific briefs.
   - `Funds/`: Mutual fund policy and performance analysis.
-- `sources/portfolio/`: Data files for the portfolios.
-  - `kant/`: Personal Portfolio (คุณ Kant).
-    - `holdings.csv`: Current stock positions.
-    - `mutual_funds.csv`: Current mutual fund positions.
-    - `portfolio-plan-kant.md`: Strategic roadmap based on real holdings.
-  - `me-tang/`: AI Autonomous Portfolio (20,000 THB).
-    - `holdings.csv`: Stock positions for the AI's fund.
-    - `mutual_funds.csv`: Mutual fund positions for the AI's fund.
-    - `transactions.csv`: Transaction history for the AI's fund.
-    - `portfolio-plan-20k.md`: AI fund's roadmap and execution plan.
+- `sources/`: Data and tracking files.
+  - `portfolio/`: Data files for the portfolios.
+    - `kant/`: Personal Portfolio (คุณ Kant).
+      - `holdings.csv`: Current stock positions.
+      - `mutual_funds.csv`: Current mutual fund positions.
+      - `portfolio-plan-kant.md`: Strategic roadmap based on real holdings.
+    - `me-tang/`: AI Autonomous Portfolio (20,000 THB).
+      - `holdings.csv`: Stock positions for the AI's fund.
+      - `mutual_funds.csv`: Mutual fund positions for the AI's fund.
+      - `transactions.csv`: Transaction history for the AI's fund.
+      - `portfolio-plan-20k.md`: AI fund's roadmap and execution plan.
+  - `ai-compare/`: Side-by-side AI comparisons (Gemini vs Claude).
+    - `TEMPLATE.md`: Standard template for comparisons.
+  - `watchlist.md`: Assets under observation.
 - `.claude/agents/`: Definitions and system prompts for each agent.
+- `.claude/commands/`: Slash command definitions.
 - `logs/`: Investment journal entries recording "Why" behind every trade and portfolio reviews.
 
 ## Operational Workflows
@@ -64,6 +69,11 @@ When the user asks about their portfolio, Me-Tang **MUST**:
 - **Me-Tang Mandate:** Always provide a solution, not just a status report.
 - **Me-Tang Fund:** The `me-tang/` portfolio is the AI's benchmark for proving its capabilities.
 
-## Commands & Tools (TODO)
-- Currently using manual agent invocation and file editing.
-- Future: Automated scripts for CSV updates and price fetching.
+## Forbidden (ห้าม)
+- Never use `rm -rf` or delete directories without explicit confirmation.
+- Do not modify files outside the project root.
+- Do not commit/stage changes unless explicitly requested.
+
+## Commands & Tools
+- **Research:** `/brief` for automated research report generation.
+- **Analysis:** Scripts for CSV processing and price fetching (In development: `analyze_portfolio.py`, `fetch_fund_nav.py`).
