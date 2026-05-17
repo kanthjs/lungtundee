@@ -130,15 +130,13 @@ def build_fund_map(target_csv_names: set) -> dict:
     return mapping
 
 
-def _class_suffix(csv_name: str) -> str | None:
-    """Extract share-class suffix from CSV name.
-    e.g. 'KKP NDQ100-UH-E' → 'E', 'KT-INDIA-D' → 'D', 'UEMIF-N' → 'N'
-    Returns None if no single-letter suffix found.
+def _class_hint(csv_name: str) -> str | None:
+    """Return class filter hint for funds in MANUAL_SEC_NAME.
+    These funds share a proj_id with sibling classes, so we need to
+    match by full class_abbr_name (e.g. 'KT-INDIA-D', 'UEMIF-N').
+    Returns None for single-class funds (no filtering needed).
     """
-    parts = csv_name.split("-")
-    if len(parts) >= 2 and len(parts[-1]) == 1 and parts[-1].isalpha():
-        return parts[-1].upper()
-    return None
+    return csv_name if csv_name in MANUAL_SEC_NAME else None
 
 
 def fetch_nav_for_date(proj_id: str, nav_date: str, class_suffix: str | None = None) -> float | None:
@@ -159,7 +157,9 @@ def fetch_nav_for_date(proj_id: str, nav_date: str, class_suffix: str | None = N
         return None
     # Filter by class suffix if provided
     if class_suffix:
-        matched = [i for i in items if i.get("class_abbr_name", "").upper() == class_suffix]
+        # Match by full class name (strip trailing spaces from API response)
+        matched = [i for i in items
+                   if i.get("class_abbr_name", "").strip().upper() == class_suffix.strip().upper()]
         if matched:
             items = matched
     item = items[0]
@@ -312,8 +312,8 @@ def main():
             failed.append(name)
             continue
 
-        cls_suffix = _class_suffix(name)
-        nav, date_used = latest_nav(proj_id, today, class_suffix=cls_suffix)
+        cls_hint = _class_hint(name)
+        nav, date_used = latest_nav(proj_id, today, class_suffix=cls_hint)
         if nav:
             nav_map[name] = nav
             tag = f"(as of {date_used})" if date_used != today.strftime("%Y-%m-%d") else "(today)"
