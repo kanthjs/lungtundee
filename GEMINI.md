@@ -91,8 +91,12 @@ Me-Tang (Digital Twin) initiates the process:
 - **Math Engine:** `analyze_portfolio.py` — Calculates P&L, Weights, and generates `portfolio_summary.md`.
 - **Alert System:** `alert_monitor.py` — Checks Kill Conditions and logs alerts to `logs/alerts.md`.
 
-## Automated Workflow (Recommended Run Sequence)
-1. `python fetch_prices.py`
-2. `python fetch_fund_nav.py`
-3. `python analyze_portfolio.py`
-4. `python alert_monitor.py`
+## Project Maturity & Status
+- **Current State:** **V3 - Automated Orchestration**.
+- **Capabilities:**
+  - ✅ **Automatic Pricing:** Real-time stock prices and technical indicators (MA, RSI).
+  - ✅ **Automatic NAV:** Scraping-based Thai mutual fund NAV updates.
+  - ✅ **Math Integrity:** Dedicated Math Engine for zero-hallucination P&L and weights.
+  - ✅ **Autonomous Guardrails:** Script-based monitoring of Kill Conditions with auto-logging.
+  - ✅ **Structured Research:** Standardized 6-section analysis reports with fundamental data injection.
+- **Next Frontier:** Model Context Protocol (MCP) implementation for full autonomous command execution by agents.
