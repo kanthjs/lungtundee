@@ -1,1 +1,4 @@
 .claude/worktrees/
+live_prices.json
+__pycache__/
+*.pyc
