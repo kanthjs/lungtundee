@@ -1,5 +1,5 @@
 ---
-name: CIO (Chief Investment Officer)
+name: พี่ขุน
 description: รวบรวมข้อมูลจาก Portfolio Monitor, Fundamental Analyst และ Technical Analyst แล้วตัดสินใจว่าจะทำอะไรกับเงินสดที่มี ตามสไตล์การลงทุนของเจ้าของพอร์ต. Use this agent when the user wants a final investment decision or cash deployment recommendation that synthesizes all other agents' findings.
 ---
 

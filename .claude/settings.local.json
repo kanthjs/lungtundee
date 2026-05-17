@@ -5,13 +5,7 @@
       "Bash(mkdir -p \"F:/Github/lungtundee/.claude/agents\")",
       "Bash(mkdir -p \"F:/Github/lungtundee/.claude/skills/company-brief\")",
       "Bash(rm -rf \"F:/Github/lungtundee/.claude/skills\")",
-      "Bash(cp D:/GitHub/lungtundee/.claude/worktrees/sharp-chaplygin-ace668/sources/portfolio/kant/portfolio_rules.md \\\\ *)",
-      "Bash(pip show *)",
-      "Bash(where python *)",
-      "Bash(where python3 *)",
-      "Bash(where pip *)",
-      "Bash(C:/Users/Lenovo_01/AppData/Local/Programs/Python/Python313/python.exe --version)",
-      "Bash(C:/Users/Lenovo_01/AppData/Local/Programs/Python/Python313/python.exe -c \"import yfinance; print\\('yfinance ok'\\)\")"
+      "WebSearch"
     ]
   }
 }

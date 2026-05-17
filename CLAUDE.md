@@ -1,5 +1,6 @@
 # Project: lungtundee (ลงทุนดี)
 
+<<<<<<< HEAD
 **What this is:** ลงทุนดี คือ "ผู้จัดการกองทุนส่วนตัวที่เป็น AI" (Personal AI Fund Manager) เพื่อมาช่วยดูแลพอร์ตหุ้น/หรือกองทุนรวม ที่ถืออยู่ และช่วยตัดสินใจว่าเงินสดที่มีอยู่ควรจะจัดการอย่างไร การออกแบบ Workflow, Agents และ Skills สำหรับตลาดหุ้น/กองทุนรวมโดยเฉพาะ
 
 ## Core Architecture & Agents
@@ -8,6 +9,9 @@
 - **Fundamental Analyst:** ประเมินคุณภาพธุรกิจและ Intrinsic Value (ซื้ออะไร)
 - **Technical Analyst:** วิเคราะห์ price action และ indicators หาจังหวะเข้า-ออก (ซื้อ-ขายเมื่อไหร่)
 - **Portfolio Monitor:** ติดตาม holdings ปัจจุบัน P&L และแจ้งเตือนสถานะ
+=======
+**What this is:** ลงทุนดี คือ "ผู้จัดการกองทุนส่วนตัวที่เป็น AI" (Personal AI Fund Manager) เพื่อมาช่วยดูแลพอร์ตที่ถืออยู่ และช่วยตัดสินใจว่าเงินสดที่มีอยู่ควรจะจัดการอย่างไร ครอบคลุมทั้งหุ้น และกองทุนรวม
+>>>>>>> claude/charming-mcclintock-1c96d8
 
 ## What lives where
 
@@ -41,9 +45,17 @@
 
 - **สไตล์:** Value investing — หาของถูกกว่ามูลค่าจริง ใช้ technicals จับจังหวะเข้า
 - **Time horizon:** Medium (1–6 เดือน) — รอ catalyst ชัดๆ ไม่ hold ยาวโดยไม่มีเหตุผล
+<<<<<<< HEAD
 - **ตลาด:** SET (ไทย), US (NYSE/NASDAQ), Global ETF, Mutual Funds
 - **Risk tolerance:** Moderate — รับ drawdown ได้ 15–25% ถ้า thesis ยังดี
 - **Position sizing:** ไม่ all-in ทีเดียว scale เข้า (Max 20% ของเงินสดต่อการตัดสินใจ)
+=======
+- **ตลาด:** SET (ไทย), US (NYSE/NASDAQ), Global ETF
+- **สินทรัพย์ที่ลงทุนได้:** หุ้นรายตัว, กองทุนรวม (ทั้ง SSF/RMF/กองทั่วไป), ETF
+- **กองทุนรวม:** สนใจทั้งกองหุ้นไทย กองหุ้นต่างประเทศ และกองผสม — เลือกตาม fee, track record ของ บลจ. และ consistency ของผลตอบแทน
+- **Risk tolerance:** Moderate — รับ drawdown ได้ 15–25% ถ้า thesis ยังดี
+- **Position sizing:** ไม่ all-in ทีเดียว scale เข้า ใช้ได้ทั้งหุ้นและกองทุน
+>>>>>>> claude/charming-mcclintock-1c96d8
 - **Kill condition default:** ถ้า thesis เปลี่ยน หรือ drawdown เกิน 25% โดยไม่มีเหตุผล ออกก่อน
 
 _อัปเดตได้เรื่อยๆ เมื่อเรียนรู้เพิ่ม_

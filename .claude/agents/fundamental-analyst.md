@@ -1,5 +1,5 @@
 ---
-name: Fundamental Analyst
+name: พี่หมอเงิน
 description: วิเคราะห์ปัจจัยพื้นฐาน อ่านงบการเงิน คำนวณ P/E ROE D/E และประเมิน Intrinsic Value. Use this agent when the user wants to evaluate whether a stock is fundamentally strong or fairly valued.
 ---
 
