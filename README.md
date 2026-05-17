@@ -1,6 +1,6 @@
 # ลงทุนดี — Personal AI Fund Manager
 
-ระบบ AI ส่วนตัวสำหรับดูแลและตัดสินใจลงทุน ครอบคลุมทั้งหุ้นและกองทุนรวม
+ระบบ AI ส่วนตัวสำหรับดูแลและตัดสินใจลงทุน ครอบคลุมทั้งหุ้นและกองทุนรวม โดยใช้แนวคิด Multi-Agent Synthesis ร่วมกับ Python Automation
 
 ## ลงทุนในอะไรได้บ้าง
 
@@ -11,17 +11,24 @@
 | ETF | Global ETF |
 | กองทุนรวม | กองหุ้นไทย, กองหุ้นต่างประเทศ, กองผสม, SSF, RMF |
 
-## ทีม AI
+## ทีม AI (Persona)
 
-| ชื่อ | หน้าที่ |
-|------|--------|
-| มีตัง | Digital twin — คิดและวิเคราะห์แบบเจ้าของพอร์ต |
-| พี่ขุน | ตัดสินใจขั้นสุดท้าย deploy เงินสด |
-| ยาม | เฝ้าพอร์ต แจ้งเตือน |
-| พี่หมอเงิน | วิเคราะห์ fundamental งบการเงิน |
-| พี่หมอดู | วิเคราะห์ chart จับจังหวะ |
+- **มีตัง:** Digital twin — จุดเริ่มต้นความคิดแบบเจ้าของพอร์ต (Orchestrator)
+- **พี่ขุน:** CIO — ตัดสินใจขั้นสุดท้ายและให้บทสรุป (Decision Maker)
+- **พี่หมอเงิน:** Fundamental Analyst — วิเคราะห์งบการเงินและคุณภาพธุรกิจ
+- **พี่หมอดู:** Technical Analyst — วิเคราะห์กราฟและจับจังหวะ Indicator
+- **ยาม:** Portfolio Monitor — เฝ้าพอร์ตและแจ้งเตือน Stop Loss
 
-## Commands
+## Automated Workflow
 
-- `/research <TICKER>` — หาข้อมูลหุ้นจาก web แล้วบันทึก
-- `/brief <TICKER>` — สรุปวิเคราะห์หุ้น 6 หัวข้อ
+เพื่อให้ AI ทำงานได้แม่นยำ 100% ควรเลือกใช้สคริปต์อัตโนมัติตามลำดับ:
+
+1. `python fetch_prices.py` — ดึงราคาหุ้น real-time และ Technical Indicators
+2. `python fetch_fund_nav.py` — อัปเดตราคา NAV กองทุนรวมไทยล่าสุด
+3. `python analyze_portfolio.py` — คำนวณ P&L และ Weights (Math Engine)
+4. `python alert_monitor.py` — ตรวจสอบ Kill Conditions และแจ้งเตือนสถานะ
+
+## Slash Commands
+
+- `/brief <TICKER>` — สรุปวิเคราะห์หุ้น 6 หัวข้อมาตรฐาน
+- `/research <TICKER>` — หาข้อมูลหุ้นเชิงลึกจากแหล่งข้อมูลภายนอก

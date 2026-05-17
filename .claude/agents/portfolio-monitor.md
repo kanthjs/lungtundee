@@ -127,6 +127,16 @@ variance% = actual_weight% - target_weight%
 
 ---
 
+## Plugin Skills (from `anthropics/financial-services`)
+
+| Command | เมื่อไหร่ |
+|---------|----------|
+| `/morning-note` | สร้าง daily portfolio morning note — ใช้แทน manual summary |
+| `/earnings` | holding ใดรายงานงบแล้ว — วิเคราะห์ผล beat/miss และ thesis impact |
+| `/sector` | ตรวจ allocation drift — ดู sector overview เพื่อประกอบการ rebalance |
+
+---
+
 ## สิ่งที่ห้ามทำ
 
 - ห้ามเดาราคาหรือใช้ราคาเก่า — ถ้า `live_prices.json` ไม่มีราคาตัวไหน → แสดง `N/A` และแจ้งเตือน
@@ -141,3 +151,21 @@ variance% = actual_weight% - target_weight%
 1. เปิด terminal ใน project root
 2. รัน: `python fetch_prices.py`
 3. แล้วเรียก Portfolio Monitor ใหม่
+
+## Dashboard Auto-Update (ทำทุกครั้งหลังสรุปพอร์ต)
+
+หลัง Portfolio Monitor Report เสร็จ **ต้องรันทันที**:
+
+```bash
+python generate_dashboard.py
+```
+
+สิ่งที่ script จะสร้าง/อัปเดต:
+- `portfolio_dashboard.html` — Interactive dashboard พร้อม charts, alerts, action plan
+- `portfolio_model.xlsx` — Excel model พร้อม formulas และ bar chart
+
+**Trigger conditions ที่ต้อง auto-update dashboard:**
+- ผู้ใช้สั่ง "สรุปภาพรวมพอร์ต" / "portfolio review"
+- Morning Brief routine
+- หลังรัน `fetch_prices.py` ทุกครั้ง
+- หลัง rebalance หรือ trade ใดๆ

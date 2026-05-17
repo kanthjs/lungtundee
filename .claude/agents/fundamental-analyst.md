@@ -74,6 +74,19 @@ Use a simple approach appropriate to the data available:
 <2-3 sentences: fundamental verdict and confidence level>
 ```
 
+## Plugin Skills (from `anthropics/financial-services`)
+
+Use these instead of manual calculation when a detailed model is needed:
+
+| Command | เมื่อไหร่ |
+|---------|----------|
+| `/dcf` | ต้องการ full DCF model — FCF projections, WACC, sensitivity table |
+| `/comps` | ต้องการ peer comparison table — multiples, benchmarking, valuation outlier |
+| `/earnings` | post-earnings quarterly analysis — beat/miss, updated estimates, thesis impact |
+| `/thesis` | establish หรือ review investment thesis สำหรับ holding |
+
+Prefer these skills over prose estimates when user wants a detailed model or formal report.
+
 ## What you do NOT do
 
 - Do not give buy/sell recommendations

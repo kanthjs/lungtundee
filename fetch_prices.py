@@ -15,8 +15,9 @@ from pathlib import Path
 
 try:
     import yfinance as yf
+    import pandas as pd
 except ImportError:
-    print("ERROR: yfinance ยังไม่ได้ติดตั้ง — รัน: pip install yfinance")
+    print("ERROR: yfinance หรือ pandas ยังไม่ได้ติดตั้ง — รัน: pip install yfinance pandas")
     sys.exit(1)
 
 # หุ้น/ETF ในพอร์ต Kant ที่เทรดใน exchange จริง
@@ -30,29 +31,47 @@ OUTPUT_FILE = Path(__file__).parent / "live_prices.json"
 
 
 def fetch_one(ticker: str) -> dict:
-    """ดึงราคาล่าสุดของ ticker หนึ่งตัว ใช้ fast_info ก่อน fallback ไป history"""
+    """ดึงราคาล่าสุดและคำนวณ Technical Indicators"""
     try:
         t = yf.Ticker(ticker)
-        info = t.fast_info
-
-        price = info.last_price
-        prev_close = info.previous_close
-
-        if price is None:
-            hist = t.history(period="5d")
-            if hist.empty:
-                return {"price": None, "prev_close": None, "change_pct": None, "error": "no data from yfinance"}
-            price = float(hist["Close"].iloc[-1])
-            prev_close = float(hist["Close"].iloc[-2]) if len(hist) >= 2 else None
+        
+        # ดึงประวัติย้อนหลัง 1 ปีเพื่อคำนวณ Indicators
+        hist = t.history(period="1y")
+        if hist.empty:
+            return {"price": None, "prev_close": None, "change_pct": None, "error": "no data from yfinance"}
+        
+        last_row = hist.iloc[-1]
+        prev_row = hist.iloc[-2] if len(hist) >= 2 else last_row
+        
+        price = float(last_row["Close"])
+        prev_close = float(prev_row["Close"])
+        
+        # คำนวณ Moving Averages
+        ma20 = hist["Close"].rolling(window=20).mean().iloc[-1]
+        ma50 = hist["Close"].rolling(window=50).mean().iloc[-1]
+        ma200 = hist["Close"].rolling(window=200).mean().iloc[-1]
+        
+        # คำนวณ RSI (14)
+        delta = hist["Close"].diff()
+        gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+        rs = gain / loss
+        rsi = 100 - (100 / (1 + rs.iloc[-1]))
 
         change_pct = None
-        if price is not None and prev_close is not None and prev_close != 0:
+        if prev_close != 0:
             change_pct = round((price - prev_close) / prev_close * 100, 4)
 
         return {
-            "price": round(float(price), 4) if price is not None else None,
-            "prev_close": round(float(prev_close), 4) if prev_close is not None else None,
+            "price": round(float(price), 4),
+            "prev_close": round(float(prev_close), 4),
             "change_pct": change_pct,
+            "indicators": {
+                "ma20": round(float(ma20), 4) if not pd.isna(ma20) else None,
+                "ma50": round(float(ma50), 4) if not pd.isna(ma50) else None,
+                "ma200": round(float(ma200), 4) if not pd.isna(ma200) else None,
+                "rsi": round(float(rsi), 2) if not pd.isna(rsi) else None,
+            }
         }
     except Exception as e:
         return {"price": None, "prev_close": None, "change_pct": None, "error": str(e)}

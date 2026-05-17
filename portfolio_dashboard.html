@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลงทุนดี — Portfolio Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body { background-color:#0f172a; font-family:'Segoe UI',system-ui,sans-serif; }
+  .card { background:#1e293b; border:1px solid #334155; border-radius:0.75rem; }
+  .score-ring {
+    width:110px;height:110px;border-radius:50%;position:relative;
+    background:conic-gradient(#3b82f6 259.2deg,#0f172a 0deg);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .score-ring::before{content:'';position:absolute;width:82px;height:82px;border-radius:50%;background:#1e293b;}
+  .section-title{font-size:0.7rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;}
+</style>
+</head>
+<body class="text-gray-100 min-h-screen p-4 md:p-6">
+<div class="max-w-7xl mx-auto space-y-6">
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h1 class="text-xl font-bold text-white">ลงทุนดี <span class="text-blue-400">Portfolio Dashboard</span></h1>
+      <p class="text-gray-500 text-xs mt-0.5">อัปเดต: 2026-05-17 17:11:43 · USD/THB: 32.65</p>
+    </div>
+    <div class="flex gap-4 text-right">
+      <div>
+        <div class="text-gray-500 text-xs">Kant — มูลค่ารวม</div>
+        <div class="text-xl font-bold text-white">฿176,932</div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-xs">Total Return</div>
+        <div class="text-xl font-bold text-green-400">+2.0%</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- ── KPI Row ─────────────────────────────────────────────────────────── -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+    <div class="card p-4 flex items-center gap-4">
+      <div class="score-ring">
+        <div class="relative z-10 text-center">
+          <div class="text-xl font-black" style="color:#3b82f6">72</div>
+          <div class="text-xs text-gray-500">/100</div>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs text-gray-500 uppercase tracking-widest">Health</div>
+        <div class="text-4xl font-black" style="color:#3b82f6">B</div>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <div class="text-xs text-gray-500 mb-1">Kant Portfolio</div>
+      <div class="text-xl font-bold text-white">฿176,932</div>
+      <div class="mt-2 grid grid-cols-2 gap-1 text-xs">
+        <div class="bg-gray-800 rounded p-1.5"><div class="text-gray-500">หุ้นตรง</div><div class="font-semibold">฿72,724</div></div>
+        <div class="bg-gray-800 rounded p-1.5"><div class="text-gray-500">กองทุน</div><div class="font-semibold">฿104,208</div></div>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <div class="text-xs text-gray-500 mb-1">Me-Tang AI Portfolio</div>
+      <div class="text-xl font-bold text-white">฿20,000</div>
+      <div class="text-xs text-yellow-400 mt-1">💵 100% CASH — รอ deploy ฿14,000</div>
+      <div class="mt-2 bg-gray-800 rounded p-1.5 text-xs"><div class="text-gray-500">เริ่มต้น</div><div class="font-semibold">฿20,000</div></div>
+    </div>
+
+    <div class="card p-4">
+      <div class="text-xs text-gray-500 mb-1">Risk Summary</div>
+      <div class="space-y-2 mt-1">
+        <div class="flex justify-between text-sm"><span class="text-gray-400">Positions near SL</span><span class="font-bold text-red-400">1</span></div>
+        <div class="flex justify-between text-sm"><span class="text-gray-400">Total alerts</span><span class="font-bold text-orange-400">4</span></div>
+        <div class="flex justify-between text-sm"><span class="text-gray-400">USD exposure</span><span class="font-bold text-blue-400">39.6%</span></div>
+        <div class="flex justify-between text-sm"><span class="text-gray-400">Annual income est.</span><span class="font-bold text-yellow-400">฿2,885</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Winners / Losers ────────────────────────────────────────────────── -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="card p-4">
+      <div class="section-title">🏆 Top Performers</div>
+      <div class="grid grid-cols-3 gap-2"><div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">KT-MINING</div><div class="text-lg font-black text-green-400">+38.5%</div><div class="text-xs text-gray-500">฿6,927</div></div>
+<div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">KT-PRECIOUS</div><div class="text-lg font-black text-green-400">+37.8%</div><div class="text-xs text-gray-500">฿8,270</div></div>
+<div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">DAOL-RARE</div><div class="text-lg font-black text-green-400">+35.5%</div><div class="text-xs text-gray-500">฿6,776</div></div></div>
+    </div>
+    <div class="card p-4">
+      <div class="section-title">⚠ Worst Performers</div>
+      <div class="grid grid-cols-3 gap-2"><div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">KT-INDIA-D</div><div class="text-lg font-black text-red-400">-19.0%</div><div class="text-xs text-gray-500">฿810</div></div>
+<div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">LAND</div><div class="text-lg font-black text-red-400">-14.9%</div><div class="text-xs text-gray-500">฿26,740</div></div>
+<div class="bg-gray-800 rounded-lg p-3"><div class="font-mono font-bold text-white text-sm">SIVR</div><div class="text-lg font-black text-red-400">-11.6%</div><div class="text-xs text-gray-500">฿3,115</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── Alerts ──────────────────────────────────────────────────────────── -->
+  <div class="card p-4">
+    <div class="section-title">🚨 Risk &amp; Stress Alerts</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="flex items-start gap-3 p-3 rounded-lg border bg-orange-950 border-orange-700 text-orange-200"><span class="text-lg mt-0.5">🟠</span><div><div class="font-bold text-xs tracking-widest uppercase">STOP LOSS NEAR</div><div class="text-sm mt-0.5">KT-INDIA-D: -19.0% (SL: -20%)</div></div></div>
+<div class="flex items-start gap-3 p-3 rounded-lg border bg-orange-950 border-orange-700 text-orange-200"><span class="text-lg mt-0.5">🟠</span><div><div class="font-bold text-xs tracking-widest uppercase">CONCENTRATION BREACH</div><div class="text-sm mt-0.5">UCHINA: 24.0% > 15.0% cap</div></div></div>
+<div class="flex items-start gap-3 p-3 rounded-lg border bg-yellow-950 border-yellow-800 text-yellow-200"><span class="text-lg mt-0.5">🟡</span><div><div class="font-bold text-xs tracking-widest uppercase">ALLOCATION DRIFT</div><div class="text-sm mt-0.5">Core Growth: Underweight 14.9%</div></div></div>
+<div class="flex items-start gap-3 p-3 rounded-lg border bg-yellow-950 border-yellow-800 text-yellow-200"><span class="text-lg mt-0.5">🟡</span><div><div class="font-bold text-xs tracking-widest uppercase">ALLOCATION DRIFT</div><div class="text-sm mt-0.5">Thematic: Overweight 12.3%</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── Two Pie Charts ──────────────────────────────────────────────────── -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <div class="card p-5">
+      <div class="section-title">Asset Allocation — Kant</div>
+      <div class="flex items-center gap-6">
+        <div class="shrink-0" style="width:160px;height:160px"><canvas id="allocPie"></canvas></div>
+        <div class="flex-1 space-y-2"><div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#3b82f6"></div><span class="text-gray-300 flex-1">Core Growth</span><span class="font-bold text-white">25.1%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#8b5cf6"></div><span class="text-gray-300 flex-1">Thematic</span><span class="font-bold text-white">42.3%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#f59e0b"></div><span class="text-gray-300 flex-1">Commodities</span><span class="font-bold text-white">16.0%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#10b981"></div><span class="text-gray-300 flex-1">หุ้นตรงไทย</span><span class="font-bold text-white">16.6%</span></div></div>
+      </div>
+    </div>
+
+    <div class="card p-5">
+      <div class="section-title">Geographic Exposure — Kant</div>
+      <div class="flex items-center gap-6">
+        <div class="shrink-0" style="width:160px;height:160px"><canvas id="geoPie"></canvas></div>
+        <div class="flex-1 space-y-2"><div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#3b82f6"></div><span class="text-gray-300 flex-1">US</span><span class="font-bold text-white">25.1%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#ef4444"></div><span class="text-gray-300 flex-1">China</span><span class="font-bold text-white">24.0%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#f97316"></div><span class="text-gray-300 flex-1">India</span><span class="font-bold text-white">0.5%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#a855f7"></div><span class="text-gray-300 flex-1">ASEAN/EM</span><span class="font-bold text-white">11.4%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#6366f1"></div><span class="text-gray-300 flex-1">Global Thematic</span><span class="font-bold text-white">6.4%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#eab308"></div><span class="text-gray-300 flex-1">Precious Metals</span><span class="font-bold text-white">6.4%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#78716c"></div><span class="text-gray-300 flex-1">Materials</span><span class="font-bold text-white">3.9%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#22c55e"></div><span class="text-gray-300 flex-1">Agriculture</span><span class="font-bold text-white">5.7%</span></div>
+<div class="flex items-center gap-2 text-xs"><div class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#06b6d4"></div><span class="text-gray-300 flex-1">Thailand</span><span class="font-bold text-white">16.6%</span></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Variance Table ──────────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">Variance Analysis — Current vs Target Allocation</div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs uppercase">
+          <th class="py-2 px-4 text-left">กลุ่ม</th>
+          <th class="py-2 px-4 text-center">Target</th>
+          <th class="py-2 px-4 text-center">Actual</th>
+          <th class="py-2 px-4 text-left w-48">Bar (│=target)</th>
+          <th class="py-2 px-4 text-center">Status</th>
+          <th class="py-2 px-4 text-right">มูลค่า</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 hover:bg-gray-800">
+          <td class="py-3 px-4 font-medium text-gray-200">Core Growth</td>
+          <td class="py-3 px-4 text-center text-gray-400">40%</td>
+          <td class="py-3 px-4 text-center font-bold text-white">25.1%</td>
+          <td class="py-3 px-4">
+            <div class="relative h-2 bg-gray-700 rounded-full">
+              <div class="absolute h-2 rounded-full bg-blue-500" style="width:25.1%"></div>
+              <div class="absolute h-4 w-0.5 bg-white opacity-40 -top-1" style="left:40%"></div>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-bold bg-yellow-900 text-yellow-300">▼ UW -14.9%</span></td>
+          <td class="py-3 px-4 text-right text-gray-300">฿44,416</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800">
+          <td class="py-3 px-4 font-medium text-gray-200">Thematic</td>
+          <td class="py-3 px-4 text-center text-gray-400">30%</td>
+          <td class="py-3 px-4 text-center font-bold text-white">42.3%</td>
+          <td class="py-3 px-4">
+            <div class="relative h-2 bg-gray-700 rounded-full">
+              <div class="absolute h-2 rounded-full bg-blue-500" style="width:42.3%"></div>
+              <div class="absolute h-4 w-0.5 bg-white opacity-40 -top-1" style="left:30%"></div>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-bold bg-red-900 text-red-300">▲ OW +12.3%</span></td>
+          <td class="py-3 px-4 text-right text-gray-300">฿74,802</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800">
+          <td class="py-3 px-4 font-medium text-gray-200">Commodities</td>
+          <td class="py-3 px-4 text-center text-gray-400">15%</td>
+          <td class="py-3 px-4 text-center font-bold text-white">16.0%</td>
+          <td class="py-3 px-4">
+            <div class="relative h-2 bg-gray-700 rounded-full">
+              <div class="absolute h-2 rounded-full bg-blue-500" style="width:16.0%"></div>
+              <div class="absolute h-4 w-0.5 bg-white opacity-40 -top-1" style="left:15%"></div>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-bold bg-green-900 text-green-300">✓ +1.0%</span></td>
+          <td class="py-3 px-4 text-right text-gray-300">฿28,314</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800">
+          <td class="py-3 px-4 font-medium text-gray-200">หุ้นตรงไทย</td>
+          <td class="py-3 px-4 text-center text-gray-400">15%</td>
+          <td class="py-3 px-4 text-center font-bold text-white">16.6%</td>
+          <td class="py-3 px-4">
+            <div class="relative h-2 bg-gray-700 rounded-full">
+              <div class="absolute h-2 rounded-full bg-blue-500" style="width:16.6%"></div>
+              <div class="absolute h-4 w-0.5 bg-white opacity-40 -top-1" style="left:15%"></div>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-bold bg-green-900 text-green-300">✓ +1.6%</span></td>
+          <td class="py-3 px-4 text-right text-gray-300">฿29,400</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Fund Scorecard ──────────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">Fund Scorecard — กองทุนรวมทั้งหมด (เรียงจากแย่→ดี) พร้อมคำแนะนำ</div>
+    <div class="text-xs text-yellow-600 mb-3">⚠ NAV ต้องอัปเดตด้วยตนเอง (yfinance ไม่มีข้อมูลกองทุนไทย) — แก้ไขใน sources/portfolio/kant/mutual_funds.csv</div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs uppercase">
+          <th class="py-2 px-3 text-left">กองทุน</th>
+          <th class="py-2 px-3 text-right">หน่วย</th>
+          <th class="py-2 px-3 text-right">Avg NAV</th>
+          <th class="py-2 px-3 text-right">NAV ปัจจุบัน</th>
+          <th class="py-2 px-3 text-right">มูลค่า</th>
+          <th class="py-2 px-3 text-right">P&amp;L%</th>
+          <th class="py-2 px-3 text-right">P&amp;L (THB)</th>
+          <th class="py-2 px-3 text-right">SL</th>
+          <th class="py-2 px-3 text-center">ห่าง SL</th>
+          <th class="py-2 px-3 text-left min-w-64">คำแนะนำ</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm bg-orange-950">
+          <td class="py-2 px-3 font-medium text-white">🏦 KT-INDIA-D</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">71.1738</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿14.0501</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿11.3771</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿810</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-19.0%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-190</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs px-1.5 py-0.5 rounded bg-red-900 text-red-300">⚠ 1.0%</span></td>
+          <td class="py-2 px-3 text-orange-400 font-semibold text-xs">🔔 เฝ้าระวัง — เหลือ buffer 1.0% ก่อนถึง SL ถ้าหล่นอีกให้ขายออก แล้วย้ายไป VOO หรือ SCHD (US index กองทุนหลัก)</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 X-NUCTECH</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">361.7290</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿13.8225</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿12.3463</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿4,466</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-10.7%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-534</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">9.3%</span></td>
+          <td class="py-2 px-3 text-yellow-400 font-semibold text-xs">⚠ ระวัง — ขาดทุน -10.7% เหลือ buffer 9.3% เตรียม cut loss plan ถ้า thesis เปลี่ยน</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 UCHINA</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">5397.6264</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿8.3370</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿7.8751</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿42,507</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-5.5%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-2,493</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">14.5%</span></td>
+          <td class="py-2 px-3 text-gray-400 text-xs">👁 เฝ้าดู — ขาดทุน -5.5% แต่ยังห่าง SL อีก 14.5% ยังไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 UEMIF-N</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">732.8853</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿13.6447</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿13.4430</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿9,852</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-1.5%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-148</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">18.5%</span></td>
+          <td class="py-2 px-3 text-gray-400 text-xs">👁 เฝ้าดู — ขาดทุน -1.5% แต่ยังห่าง SL อีก 18.5% ยังไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 UOBSJSM</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">301.4654</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿33.1713</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿34.4691</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿10,391</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+3.9%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿391</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">23.9%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 3.9% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 K-AGRI</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">562.9322</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿6.3951</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿6.7839</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿3,819</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+6.1%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿219</td>
+          <td class="py-2 px-3 text-right text-gray-500">-15%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">21.1%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 6.1% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 KKP US500-UH-E</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">172.0841</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿11.6222</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿13.0047</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿2,238</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+11.9%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿238</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">31.9%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 11.9% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 ES-GTECH</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">151.7050</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿32.9587</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿38.0030</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿5,765</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+15.3%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿765</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">35.3%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไร 15.3% thesis ยังดี รอ catalyst ต่อ ไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 KKP NDQ100-UH-E</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">137.0202</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿14.5964</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿17.4150</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿2,386</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+19.3%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿386</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">39.3%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไร 19.3% thesis ยังดี รอ catalyst ต่อ ไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 DAOL-RARE</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">445.3192</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿11.2279</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿15.2166</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿6,776</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+35.5%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿1,776</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">55.5%</span></td>
+          <td class="py-2 px-3 text-emerald-400 font-semibold text-xs">🎯 ล็อกกำไร — กำไร 35.5% แล้ว ตั้ง trailing stop (floor = peak × 0.90) ยังไม่ต้องขาย</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 KT-PRECIOUS</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">496.4236</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿12.0865</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿16.6589</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿8,270</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+37.8%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿2,270</td>
+          <td class="py-2 px-3 text-right text-gray-500">-15%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">52.8%</span></td>
+          <td class="py-2 px-3 text-emerald-400 font-semibold text-xs">🎯 ล็อกกำไร — กำไร 37.8% แล้ว ตั้ง trailing stop (floor = peak × 0.90) ยังไม่ต้องขาย</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm ">
+          <td class="py-2 px-3 font-medium text-white">🏦 KT-MINING</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">544.4428</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿9.1837</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿12.7235</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿6,927</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+38.5%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿1,927</td>
+          <td class="py-2 px-3 text-right text-gray-500">-15%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">53.5%</span></td>
+          <td class="py-2 px-3 text-emerald-400 font-semibold text-xs">🎯 ล็อกกำไร — กำไร 38.5% แล้ว ตั้ง trailing stop (floor = peak × 0.90) ยังไม่ต้องขาย</td>
+        </tr>
+        <tr class="border-t-2 border-gray-500 bg-gray-800 text-sm font-bold">
+          <td class="py-2 px-3 text-gray-300 text-xs uppercase tracking-wider">รวมกองทุน</td>
+          <td colspan="3"></td>
+          <td class="py-2 px-3 text-right text-white">฿104,208</td>
+          <td class="py-2 px-3 text-right text-green-400">+4.6%</td>
+          <td class="py-2 px-3 text-right text-green-400">฿4,608</td>
+          <td colspan="3"></td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Stock Holdings ──────────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">Stock Holdings — หุ้นตรงทั้งหมด (Kant) พร้อมคำแนะนำ</div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs uppercase">
+          <th class="py-2 px-3 text-left">Ticker</th>
+          <th class="py-2 px-3 text-right">จำนวน</th>
+          <th class="py-2 px-3 text-right">ราคาทุน/หน่วย</th>
+          <th class="py-2 px-3 text-right">ราคาปัจจุบัน</th>
+          <th class="py-2 px-3 text-right">P&amp;L%</th>
+          <th class="py-2 px-3 text-right">P&amp;L (THB)</th>
+          <th class="py-2 px-3 text-right">SL</th>
+          <th class="py-2 px-3 text-center">ห่าง SL</th>
+          <th class="py-2 px-3 text-left min-w-64">คำแนะนำ</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 LAND</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">87.1252</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$11.0435</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$9.4000</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-14.9%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-4,675</td>
+          <td class="py-2 px-3 text-right text-gray-500">-25%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">10.1%</span></td>
+          <td class="py-2 px-3 text-gray-400 text-xs">👁 เฝ้าดู — ขาดทุน -14.9% แต่ยังห่าง SL อีก 10.1% ยังไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 VOO</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">1.0449</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$600.9500</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$679.4400</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+13.1%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿2,678</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">33.1%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 13.1% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 JEPQ</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">4.4342</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$56.3800</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$59.7700</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+6.0%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿491</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">26.0%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 6.0% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 CTVA</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">2.3034</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$78.0807</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$82.2100</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+5.3%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿311</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">25.3%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 5.3% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 SIVR</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">1.3153</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$82.0751</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$72.5400</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">-11.6%</td>
+          <td class="py-2 px-3 text-right text-red-400 font-semibold">฿-409</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">8.4%</span></td>
+          <td class="py-2 px-3 text-yellow-400 font-semibold text-xs">⚠ ระวัง — ขาดทุน -11.6% เหลือ buffer 8.4% เตรียม cut loss plan ถ้า thesis เปลี่ยน</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 SCB</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">20.0000</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">฿129.2500</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">฿133.0000</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+2.9%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿75</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">22.9%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไรเล็กน้อย 2.9% ยังอยู่ใน zone ปกติ</td>
+        </tr>
+        <tr class="border-b border-gray-700 hover:bg-gray-800 text-sm">
+          <td class="py-2 px-3 font-mono font-medium text-white">📈 SCHD</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">2.1178</td>
+          <td class="py-2 px-3 text-right text-gray-400 font-mono text-xs">$26.9996</td>
+          <td class="py-2 px-3 text-right font-mono text-white text-xs">$31.7200</td>
+          <td class="py-2 px-3 text-right font-bold text-green-400">+17.5%</td>
+          <td class="py-2 px-3 text-right text-green-400 font-semibold">฿326</td>
+          <td class="py-2 px-3 text-right text-gray-500">-20%</td>
+          <td class="py-2 px-3 text-center"><span class="text-xs text-gray-500">37.5%</span></td>
+          <td class="py-2 px-3 text-green-400 text-xs">✅ ถือต่อ — กำไร 17.5% thesis ยังดี รอ catalyst ต่อ ไม่ต้องทำอะไร</td>
+        </tr>
+        <tr class="border-t-2 border-gray-500 bg-gray-800 text-sm font-bold">
+          <td class="py-2 px-3 text-gray-300 text-xs uppercase tracking-wider">รวมหุ้นตรง</td>
+          <td colspan="3"></td>
+          <td class="py-2 px-3 text-right text-red-400">-1.6%</td>
+          <td class="py-2 px-3 text-right text-red-400">฿-1,204</td>
+          <td class="py-2 px-3 text-right text-gray-400 text-xs" colspan="3">฿72,724</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <!-- ── Technical Signals ───────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">📊 Technical Signals — หุ้นตรง (RSI + Moving Averages)</div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">CTVA</span>
+            <span class="text-xs font-mono text-gray-300">$82.21 <span class="text-red-400">(-1.31%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">58.5 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:58%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-green-400">▲ $81.04</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-green-400">▲ $81.10</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ $71.97</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">JEPQ</span>
+            <span class="text-xs font-mono text-gray-300">$59.77 <span class="text-red-400">(-0.40%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-red-400">79.5 — Overbought ⚠</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-red-500" style="width:79%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-green-400">▲ $58.96</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-green-400">▲ $57.08</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ $55.18</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">LAND</span>
+            <span class="text-xs font-mono text-gray-300">$9.40 <span class="text-red-400">(-0.42%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">35.6 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:36%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-red-400">▼ $9.75</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-red-400">▼ $10.32</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-red-400">▼ $9.56</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-red-400">Below MA200 — Caution</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">SCB</span>
+            <span class="text-xs font-mono text-gray-300">฿133.00 <span class="text-green-400">(+0.00%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">58.8 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:59%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-green-400">▲ ฿132.00</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-red-400">▼ ฿134.03</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ ฿126.20</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">SCHD</span>
+            <span class="text-xs font-mono text-gray-300">$31.72 <span class="text-red-400">(-0.25%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">63.6 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:64%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-green-400">▲ $31.51</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-green-400">▲ $30.97</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ $28.46</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">SIVR</span>
+            <span class="text-xs font-mono text-gray-300">$72.54 <span class="text-red-400">(-8.59%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">51.0 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:51%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-red-400">▼ $74.05</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-red-400">▼ $73.25</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ $61.18</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-3 border border-gray-700">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white">VOO</span>
+            <span class="text-xs font-mono text-gray-300">$679.44 <span class="text-red-400">(-1.21%)</span></span>
+          </div>
+          <div class="mb-2">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-gray-500">RSI(14)</span>
+              <span class="font-bold text-yellow-400">69.7 — Neutral</span>
+            </div>
+            <div class="bg-gray-700 rounded-full h-1.5 relative">
+              <div class="h-1.5 rounded-full bg-yellow-500" style="width:70%"></div>
+              <div class="absolute h-3 w-px bg-red-600 opacity-70 -top-0.5" style="left:70%"></div>
+              <div class="absolute h-3 w-px bg-green-600 opacity-70 -top-0.5" style="left:30%"></div>
+            </div>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA20</span><span class="text-green-400">▲ $665.39</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA50</span><span class="text-green-400">▲ $633.99</span></div>
+            <div class="flex justify-between text-xs"><span class="text-gray-500">MA200</span><span class="text-green-400">▲ $618.91</span></div>
+          </div>
+          <div class="mt-2 pt-1.5 border-t border-gray-700">
+            <span class="text-xs font-semibold text-green-400">Long-term Bullish</span>
+          </div>
+        </div>
+    </div>
+    <div class="mt-3 text-xs text-gray-600">* RSI(14) + MA คำนวณจาก 1-year historical data · เส้นแดง=70 (Overbought) · เส้นเขียว=30 (Oversold)</div>
+  </div>
+
+
+  <!-- ── Currency + Stress + Income ─────────────────────────────────────── -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Currency Exposure -->
+    <div class="card p-5">
+      <div class="section-title">Currency Exposure</div>
+      <div class="space-y-3">
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-blue-400 font-bold">🇺🇸 USD</span>
+            <span class="text-white font-bold">39.6%</span>
+          </div>
+          <div class="bg-gray-700 rounded-full h-3">
+            <div class="bg-blue-500 h-3 rounded-full" style="width:39.6%"></div>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">฿70,064</div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="text-cyan-400 font-bold">🇹🇭 THB</span>
+            <span class="text-white font-bold">60.4%</span>
+          </div>
+          <div class="bg-gray-700 rounded-full h-3">
+            <div class="bg-cyan-500 h-3 rounded-full" style="width:60.4%"></div>
+          </div>
+          <div class="text-xs text-gray-500 mt-0.5">฿106,868</div>
+        </div>
+        <div class="pt-2 border-t border-gray-700 text-xs text-gray-500">
+          USD/THB exposure ช่วยกระจายความเสี่ยงค่าเงินบาท — target USD 60-70%
+        </div>
+      </div>
+    </div>
+
+    <!-- Stress Test -->
+    <div class="card p-5">
+      <div class="section-title">Stress Test Scenarios</div>
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs">
+          <th class="py-1 text-left">Scenario</th>
+          <th class="py-1 text-right">ขาดทุน</th>
+          <th class="py-1 text-right">%</th>
+          <th class="py-1 text-right">เหลือ</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 text-gray-300">ตลาดร่วง -10%</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">฿-15,129</td>
+          <td class="py-2 px-3 text-right text-red-400">-8.6%</td>
+          <td class="py-2 px-3 text-right text-white">฿161,802</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 text-gray-300">ตลาดร่วง -20%</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">฿-30,258</td>
+          <td class="py-2 px-3 text-right text-red-400">-17.1%</td>
+          <td class="py-2 px-3 text-right text-white">฿146,673</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 text-gray-300">ตลาดร่วง -30%</td>
+          <td class="py-2 px-3 text-right font-bold text-red-400">฿-45,387</td>
+          <td class="py-2 px-3 text-right text-red-400">-25.7%</td>
+          <td class="py-2 px-3 text-right text-white">฿131,544</td>
+        </tr></tbody>
+      </table>
+      <div class="mt-3 text-xs text-gray-500">* คำนวณจาก asset-class beta โดยประมาณ — ใช้เป็น reference เท่านั้น</div>
+    </div>
+
+    <!-- Income Estimate -->
+    <div class="card p-5">
+      <div class="section-title">Income Estimate (Annual)</div>
+      <div class="text-2xl font-bold text-yellow-400 mb-3">฿2,885 <span class="text-sm text-gray-500">/ ปี</span></div>
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs">
+          <th class="py-1 text-left">สินทรัพย์</th>
+          <th class="py-1 text-center">Yield</th>
+          <th class="py-1 text-right">ต่อปี</th>
+          <th class="py-1 text-right">ต่อเดือน</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">LAND</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">5.5%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿1,471</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿123</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">JEPQ</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">9.0%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿779</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿65</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">VOO</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">1.3%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿301</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿25</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">SCB</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">5.5%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿146</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿12</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">CTVA</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">1.8%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿111</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿9</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-medium text-white">SCHD</td>
+          <td class="py-2 px-3 text-center text-yellow-400 font-bold">3.5%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿77</td>
+          <td class="py-2 px-3 text-right text-gray-400">฿6</td>
+        </tr></tbody>
+      </table>
+      <div class="mt-2 text-xs text-gray-500">* ประมาณการจาก historical yield — ไม่ใช่การการันตีผลตอบแทน</div>
+    </div>
+
+  </div>
+
+  <!-- ── Watchlist ────────────────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">👁 Watchlist — รายการที่กำลังติดตาม</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+        <div class="bg-gray-800 rounded-lg p-4">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-mono font-bold text-white text-base">KKP <span class="text-xs text-gray-500 font-normal">SET</span></div>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-900 text-blue-300">Monitor</span>
+          </div>
+          <div class="text-xs text-gray-400 mb-1"><span class="text-gray-500">Thesis:</span> Value bank P/E 10x, P/BV 1.00x, Dividend yield 6.82%, Beta 0.47</div>
+          <div class="text-xs text-gray-400 mb-1"><span class="text-gray-500">Catalyst:</span> Re-rating เมื่ออสังหาฯ คลี่คลาย</div>
+          <div class="text-xs text-green-400"><span class="text-gray-500">Entry zone:</span> ต่ำกว่า P/BV 1.0x</div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4">
+          <div class="flex items-center justify-between mb-2">
+            <div class="font-mono font-bold text-white text-base">HMPRO <span class="text-xs text-gray-500 font-normal">SET</span></div>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-900 text-blue-300">Monitor</span>
+          </div>
+          <div class="text-xs text-gray-400 mb-1"><span class="text-gray-500">Thesis:</span> Construction retail recovery play, P/E 13.82x, Target ฿7.48</div>
+          <div class="text-xs text-gray-400 mb-1"><span class="text-gray-500">Catalyst:</span> 2H26 — งบภาครัฐ + SME recovery</div>
+          <div class="text-xs text-green-400"><span class="text-gray-500">Entry zone:</span> ต่ำกว่า ฿6.00</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- ── Me-Tang Plan ─────────────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">🤖 Me-Tang AI Portfolio — Plan vs Current</div>
+    <div class="mb-4 p-3 bg-yellow-950 border border-yellow-800 rounded-lg text-yellow-200 text-sm">
+      ⏳ <strong>ยังไม่ได้ Deploy</strong> — เงิน ฿20,000 ยังเป็น Cash 100%
+      · ต้องซื้อ KKP ฿7,000 + HMPRO ฿7,000 เมื่อ technical จังหวะดี
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="border-b border-gray-700 text-gray-500 text-xs uppercase">
+          <th class="py-2 px-3 text-left">สินทรัพย์</th>
+          <th class="py-2 px-3 text-center">Target %</th>
+          <th class="py-2 px-3 text-right">Target (THB)</th>
+          <th class="py-2 px-3 text-right">ปัจจุบัน</th>
+          <th class="py-2 px-3 text-right">Gap</th>
+          <th class="py-2 px-3 text-center">สถานะ</th>
+        </tr></thead>
+        <tbody>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-mono font-bold text-white">KKP</td>
+          <td class="py-2 px-3 text-center text-gray-300">35%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿7,000</td>
+          <td class="py-2 px-3 text-right text-gray-500">฿0</td>
+          <td class="py-2 px-3 text-right text-orange-400">฿7,000</td>
+          <td class="py-2 px-3 text-center text-yellow-400">ยังไม่ซื้อ</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-mono font-bold text-white">HMPRO</td>
+          <td class="py-2 px-3 text-center text-gray-300">35%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿7,000</td>
+          <td class="py-2 px-3 text-right text-gray-500">฿0</td>
+          <td class="py-2 px-3 text-right text-orange-400">฿7,000</td>
+          <td class="py-2 px-3 text-center text-yellow-400">ยังไม่ซื้อ</td>
+        </tr>
+        <tr class="border-b border-gray-700 text-sm">
+          <td class="py-2 px-3 font-mono font-bold text-white">Cash</td>
+          <td class="py-2 px-3 text-center text-gray-300">30%</td>
+          <td class="py-2 px-3 text-right text-gray-300">฿6,000</td>
+          <td class="py-2 px-3 text-right text-gray-500">฿20,000</td>
+          <td class="py-2 px-3 text-right text-orange-400">-</td>
+          <td class="py-2 px-3 text-center text-green-400">Reserve</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 90-Day Action Plan ───────────────────────────────────────────────── -->
+  <div class="card p-5">
+    <div class="section-title">📋 Proactive Action Plan — 90 วัน</div>
+    <ul class="space-y-3">
+      <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-orange-400'>🔔 ภายใน 1 สัปดาห์:</strong> KT-INDIA-D: -19.0% (SL: -20%) — เตรียม cut loss plan</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-orange-400'>⚠ ภายใน 2 สัปดาห์:</strong> UCHINA: 24.0% > 15.0% cap — Rebalance ลดสัดส่วน ย้ายไปกลุ่ม Underweight</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-yellow-400'>📊 ภายใน 1 เดือน:</strong> Core Growth: Underweight 14.9% — Review rebalancing plan</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-yellow-400'>📊 ภายใน 1 เดือน:</strong> Thematic: Overweight 12.3% — Review rebalancing plan</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-green-400'>🎯 Trailing Stop:</strong> KT-PRECIOUS, KT-MINING, DAOL-RARE มีกำไร ≥ 30% — ตั้ง Floor = peak × 0.90</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-blue-400'>📅 ทุกเดือน:</strong> รัน <code class='bg-gray-700 px-1 rounded text-xs'>python fetch_prices.py && python generate_dashboard.py</code></span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-blue-400'>📅 ทุกเดือน:</strong> ตรวจ Allocation Variance — กลุ่มไหนเบี่ยง ±10% → Rebalance ภายใน 2 สัปดาห์</span></li>
+<li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold mt-0.5 shrink-0">›</span><span><strong class='text-purple-400'>🔍 Q3 2026:</strong> Me-Tang — execute KKP + HMPRO entry ตาม plan ถ้า technical จังหวะดี</span></li>
+    </ul>
+  </div>
+
+  <div class="text-center text-xs text-gray-600 pb-4">
+    ลงทุนดี Dashboard · Generated 2026-05-17 17:11:43 · ข้อมูลนี้ไม่ใช่คำแนะนำทางการเงิน
+  </div>
+
+</div>
+
+<script>
+// Allocation Pie
+new Chart(document.getElementById('allocPie'),{
+  type:'doughnut',
+  data:{
+    labels:["Core Growth", "Thematic", "Commodities", "หุ้นตรงไทย"],
+    datasets:[{data:[25.1, 42.3, 16.0, 16.6],backgroundColor:["#3b82f6", "#8b5cf6", "#f59e0b", "#10b981"],borderColor:'#1e293b',borderWidth:3}]
+  },
+  options:{responsive:true,maintainAspectRatio:true,cutout:'62%',plugins:{legend:{display:false}}}
+});
+
+// Geo Pie
+new Chart(document.getElementById('geoPie'),{
+  type:'doughnut',
+  data:{
+    labels:["US", "China", "India", "ASEAN/EM", "Global Thematic", "Precious Metals", "Materials", "Agriculture", "Thailand"],
+    datasets:[{data:[25.1, 24.0, 0.5, 11.4, 6.4, 6.4, 3.9, 5.7, 16.6],backgroundColor:["#3b82f6", "#ef4444", "#f97316", "#a855f7", "#6366f1", "#eab308", "#78716c", "#22c55e", "#06b6d4"],borderColor:'#1e293b',borderWidth:3}]
+  },
+  options:{responsive:true,maintainAspectRatio:true,cutout:'62%',plugins:{legend:{display:false}}}
+});
+</script>
+</body>
+</html>

@@ -72,6 +72,16 @@ Use plain Thai for the verdict. No hedging. No "it depends." Give a clear action
 <1-2 upcoming events or data points that matter most>
 ```
 
+## Plugin Skills (from `anthropics/financial-services`)
+
+Use these to enrich the decision report:
+
+| Command | เมื่อไหร่ |
+|---------|----------|
+| `/catalysts` | populate "What to watch next" — upcoming earnings dates, events, catalysts |
+| `/initiate` | หุ้นใหม่ที่ยังไม่เคยวิเคราะห์ — สร้าง initiation of coverage report |
+| `/earnings-preview` | holdings ที่กำลังจะรายงานงบ — ประเมิน expectations ก่อน earnings date |
+
 ## What you do NOT do
 
 - Do not give a formal financial advisory opinion or claim to be a licensed advisor

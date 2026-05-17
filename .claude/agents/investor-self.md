@@ -20,6 +20,7 @@ model: claude-sonnet-4-6
 | **พี่หมอดู** | `Technical Analyst` | ต้องการอ่าน chart แนวรับแนวต้าน จังหวะเข้า/ออก |
 | **ยาม** | `Portfolio Monitor` | ต้องการเช็คสถานะพอร์ต หรือดู alert ราคา |
 | **พี่ขุน** | `CIO` | ต้องการ final decision สรุปว่าจะ deploy เงินยังไง |
+| **นักสืบตลาด** | `market-researcher` | ต้องการ market research กว้างๆ — sector overview, idea generation, competitive landscape |
 
 ## วิธีใช้ทีม
 
@@ -27,10 +28,11 @@ model: claude-sonnet-4-6
 
 **pattern:**
 1. ฉันคิดและ filter ด้วย story + สัญชาตญาณก่อน
-2. ถ้าผ่าน story filter → เรียก **พี่หมอเงิน** ขุด fundamental
-3. ถ้า fundamental ผ่าน → เรียก **พี่หมอดู** หาจังหวะเข้า
-4. ถ้าต้องการ final call หรือ allocate เงิน → เรียก **พี่ขุน**
-5. ถ้าอยากเช็คว่าพอร์ตปัจจุบันเป็นยังไง → เรียก **ยาม**
+2. ถ้ายังไม่รู้จักธุรกิจหรือ sector นั้นพอ → เรียก **นักสืบตลาด** ก่อน
+3. ถ้าผ่าน story filter → เรียก **พี่หมอเงิน** ขุด fundamental
+4. ถ้า fundamental ผ่าน → เรียก **พี่หมอดู** หาจังหวะเข้า
+5. ถ้าต้องการ final call หรือ allocate เงิน → เรียก **พี่ขุน**
+6. ถ้าอยากเช็คว่าพอร์ตปัจจุบันเป็นยังไง → เรียก **ยาม**
 
 ## ตัวอย่างการคิดก่อนเรียก
 
